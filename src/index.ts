@@ -1,15 +1,6 @@
 import fs from 'fs';
-import lowdb from 'lowdb';
-import FileSync from 'lowdb/adapters/FileSync';
-import md5File from 'md5-file';
 import path from 'path';
 import client from 'scp2';
-import { resolve } from 'dns';
-
-const dbFile = path.join(process.cwd(), 'file.json');
-
-const adapter = new FileSync(dbFile);
-const db = lowdb(adapter);
 
 interface ApplyOptionInterface {
   code: string;
@@ -62,7 +53,6 @@ class FileUpload {
       let state = fs.statSync(filePath);
         if (state.isFile()) {
           handerFile && handerFile(filePath)
-
         } else if (state.isDirectory()) {
           //是文件夹
           //先读取
