@@ -1,29 +1,34 @@
-# wepy-plugin-aliyun-oss
->A plugin for wepy is used to upload images to aliyun-oss
+# wepy-plugin-uploadimg
+>A plugin for wepy is used to upload images to sever and replace the link to url
 
 ## Install
 
 ```js
-yarn add wepy-plugin-aliyun-oss --dev
-```
+yarn add wepy-plugin-uploadimg --dev
 
-## Usage
-
-```js
-module.exports = {
-  ...
-  plugins: {
-    'aliyun-oss': {
-      oss: {
-        accessKeyId: 'accessKeyId',
-        accessKeySecret: 'accessKeySecret',
-        bucket: 'xmpt-sit',
-        endpoint: 'https://oss-cn-shenzhen.aliyuncs.com',
-        region: 'oss-cn-shenzhen'
-      },
-      config: { debugMode: false, time: false },
-    },
-  },
-  ...
+config: {
+  debugMode: false,
+  delDistImg: true,
+  limit: 1024,
+  time: false,
+  host: 'xxx',
+  password: 'xxx',
+  username: 'xxx',
+  url: 'http://...',
+  dirPath: '...',
 }
-```
+
+useage 
+
+
+import it and use nodejs use like
+
+
+const UploadImg = require('./node_modules/wepy-plugin-uploadimg').default;
+
+const uploadImgInstanse = new UploadImg({
+  config: {
+    ...
+  },
+});
+uploadImgInstanse.UploadResoureFile();
